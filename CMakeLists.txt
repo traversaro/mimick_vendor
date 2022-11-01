@@ -15,7 +15,7 @@ macro(build_mimick)
       list(APPEND cmake_configure_args -G ${CMAKE_GENERATOR})
     endif()
     if("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "^(x86_|x86-|AMD|amd|x)64$")
-      list(APPEND cmake_configure_args -A x64)
+      list(APPEND cmake_configure_args "-DMIMICK_TARGET_ARCH=x64")
     endif()
   endif()
 
@@ -58,7 +58,7 @@ macro(build_mimick)
   endif()
 
   include(ExternalProject)
-  set(mimick_version "de11f8377eb95f932a03707b583bf3d4ce5bd3e7")
+  set(mimick_version "cfa00a322b822097b729bad3cf22278f46e69952")
   externalproject_add(mimick-${mimick_version}
     GIT_REPOSITORY https://github.com/ros2/Mimick.git
     GIT_TAG ${mimick_version}
